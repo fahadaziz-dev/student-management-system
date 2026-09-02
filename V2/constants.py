@@ -1,0 +1,22 @@
+student_list = []
+valid_grades = ["A+", "A", "B+", "B", "C", "D", "F"]
+programs = ["BS Artificial Intelligence","BS Computer Science", "BS Software Engineering",
+    "BS Information Technology",
+    "BS Data Science",
+    "BS Cyber Security",
+    "BS Electrical Engineering",
+    "BS Electronics Engineering",
+    "BS Computer Engineering",
+    "BS Telecommunication Engineering",
+    "BS Mechanical Engineering",
+    "BS Civil Engineering",
+    "BS Biomedical Engineering",
+    "BS Industrial Engineering",
+    "BS Mathematics",
+    "BS Physics",
+    "BS Business Administration",
+    "BS Accounting and Finance",
+    "BS Economics",
+    "BS English",
+    "BS Media Studies",
+    "BS Psychology"]
