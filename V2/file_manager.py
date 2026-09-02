@@ -8,7 +8,7 @@ FILE_PATH = os.path.join(BASE_DIR, "students.txt")
 
 def save_students():
     try:
-        with open("FILE_PATH", "w") as file:
+        with open(FILE_PATH, "w") as file:
             for student in student_list:
                 file.write(f"{student.get_name()},{student.get_age()},{student.get_semester()},{student.get_id()},{student.get_grade()},{student.get_program()}\n")
     
@@ -21,7 +21,7 @@ def load_students():
     skipped_records= 0
     
     try:
-        with open("FILE_PATH", "r") as file:
+        with open(FILE_PATH, "r") as file:
             for line in file:
                 data= [item.strip() for item in line.split(",")]
                 if len(data)!=6:
@@ -94,7 +94,7 @@ def clear_data():
         if choice == "y":
             student_list.clear()
         
-            with open("FILE_PATH", "w") as file:
+            with open(FILE_PATH, "w") as file:
                 pass
             print("All student data cleared successfully")
             break
@@ -109,7 +109,7 @@ def clear_data():
 # old saved data + file removal
 def delete_file():
 
-    if not os.path.exists("FILE_PATH"):
+    if not os.path.exists(FILE_PATH):
         print("\"File does not exist\"")
         return
 
@@ -119,7 +119,7 @@ def delete_file():
         
         choice= input("Are you sure you want to delete the student file? (y/n): ").lower().strip()
         if choice == "y":
-            os.remove("students.txt")
+            os.remove(FILE_PATH)
             print("Student file deleted successfully.")
             print("Current session data is still available until the program exits.")
             break
@@ -134,7 +134,7 @@ def delete_file():
 # viewing file function
 def view_file():
     try:
-        with open("FILE_PATH", "r") as file:
+        with open(FILE_PATH, "r") as file:
             data= file.read()
     
             if data:
