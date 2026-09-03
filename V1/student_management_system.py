@@ -6,6 +6,8 @@
 
 ## importing os and using in delete file function
 import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FILE_PATH = os.path.join(BASE_DIR, "students.txt")
 
 # class - the blueprint
 class Student:
@@ -114,7 +116,7 @@ courses = ["BS Artificial Intelligence","BS Computer Science", "BS Software Engi
 
 def save_students():
     try:
-        with open("students.txt", "w") as file:
+        with open(FILE_PATH, "w") as file:
             for student in student_list:
                 file.write(f"{student.get_name()},{student.get_age()},{student.get_id()},{student.get_course()},{student.get_semester()},{student.get_grade()}\n")
 
@@ -127,7 +129,7 @@ def load_students():
     skipped_records= 0
 
     try:
-        with open("students.txt", "r") as file:
+        with open(FILE_PATH, "r") as file:
             for line in file:
                 data= [item.strip() for item in line.split(",")]
                 if len(data)!=6:
@@ -213,7 +215,7 @@ def clear_data():
 # old saved data + file removal
 def delete_file():
 
-    if not os.path.exists("students.txt"):
+    if not os.path.exists(FILE_PATH):
         print("\"File does not exist\"")
         return
 
@@ -222,7 +224,7 @@ def delete_file():
                       "All saved student data will be permanently removed. (y/n): ").lower().strip()
 
         if choice == "y":
-            os.remove("students.txt")
+            os.remove(FILE_PATH)
             print("Student file deleted successfully. All saved student data has been removed.")
             break
 
@@ -236,7 +238,7 @@ def delete_file():
 # viewing file function
 def view_file():
     try:
-        with open("students.txt", "r") as file:
+        with open(FILE_PATH, "r") as file:
             data= file.read()
 
             if data:
@@ -663,7 +665,3 @@ main_menu()
 
 
 # In[ ]:
-
-
-
-
